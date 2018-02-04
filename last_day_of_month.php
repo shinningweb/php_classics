@@ -14,4 +14,14 @@ foreach ($month as $key => $value)
 //show the number of days in each month
 echo 'Last day of '.$value.' '.$year.' is  '.cal_days_in_month(CAL_GREGORIAN, $key, $year).'<br/>';
 }
+
+
+//BETTER ALTERNATIVE
+$year = date('Y');
+for ($m = 1; $m <= 12; $m++) {
+    $date = new DateTime($year . '-' . $m . '-' . date('t'));
+    echo 'Last day of ' . $date->format('M') . ' is ' . $date->format('l, d');
+} 
+
+
 ?>
